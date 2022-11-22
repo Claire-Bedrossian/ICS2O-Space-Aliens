@@ -53,24 +53,3 @@
 }
 
 export default TitleScene;
-
-  /**
-   * Can be defined on your own scenes.
-   * Use it to make your game objects.
-   */
-  create(data) {
-    //pass
-  }
-
-  /**
-   * Should be overridden by your scenes.
-   * Method gets called once per game step while scene is running.
-   * @param {number} time - The Current Time
-   * @param {number} delta - The delta time in ms since the last frame.
-   */
-  update(time, delta) {
-    //pass
-  }
-}
-
-export default TitleScene;
