@@ -9,7 +9,7 @@
 /**
  * Class Is In Splash Scene.
  */
-class SplashScene extends Phaser.Scene {
+ class SplashScene extends Phaser.Scene {
   /**
    * This Method Is The Constructor.
    */
