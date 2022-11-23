@@ -16,6 +16,9 @@ class TitleScene extends Phaser.Scene {
 
   constructor() {
     super({ key: "titleScene" });
+
+    this.titleSceneBackgroundImage = null
+
   }
   /**
    * Can be defined on your own scenes.
@@ -31,6 +34,7 @@ class TitleScene extends Phaser.Scene {
    */
   preload() {
     console.log("Title Scene");
+    this.load.image('titleSceneBackground', 'assets/aliens_screen_image.jpg')
   }
 
   /**
@@ -38,7 +42,9 @@ class TitleScene extends Phaser.Scene {
    * Use it to make your game objects.
    */
   create(data) {
-    //pass
+    this.titleSceneBackgroundImage = this.add.sprite(0, 0, 'titleSceneBackground').setScale(2.75)
+    this.titleSceneBackgroundImage.x = 1920 / 2;
+    this.titleSceneBackgroundImage.y = 1080 / 2;
   }
 
   /**
