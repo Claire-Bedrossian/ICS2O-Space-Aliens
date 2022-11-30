@@ -9,7 +9,7 @@
 import SplashScene from "./splashScene.js";
 import TitleScene from "./titleScene.js";
 import MenuScene from "./menuScene.js";
-import GameScene from "./splashScene.js";
+import GameScene from "./gameScene.js";
 
 //The game scene
 const splashScene = new SplashScene();
