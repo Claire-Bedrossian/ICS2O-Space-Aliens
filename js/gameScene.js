@@ -9,7 +9,7 @@
 /**
  * Class Is In Game Scene.
  */
- class GameScene extends Phaser.Scene {
+class GameScene extends Phaser.Scene {
   /**
    * This Method Is The Constructor.
    */
