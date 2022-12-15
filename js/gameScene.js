@@ -54,7 +54,6 @@ class GameScene extends Phaser.Scene {
     // sound
     this.load.audio("laser", "./assets/laser1.wav");
     this.load.audio("explosion", "./assets/barrelExploding.wav");
-
   }
 
   /**
@@ -75,13 +74,17 @@ class GameScene extends Phaser.Scene {
     this.createAlien();
 
     // Collisions between missiles and aliens
-    this.physics.add.collider(this.missileGroup, this.alienGroup, function (missileCollide, alienCollide){
-      alienCollide.destroy()
-      missileCollide.destroy()
-      this.sound.play("explosion")
-      this.createAlien()
-      this.createAlien()
-    }.bind(this))
+    this.physics.add.collider(
+      this.missileGroup,
+      this.alienGroup,
+      function (missileCollide, alienCollide) {
+        alienCollide.destroy();
+        missileCollide.destroy();
+        this.sound.play("explosion");
+        this.createAlien();
+        this.createAlien();
+      }.bind(this)
+    );
   }
   /**
    * Should be overridden by your scenes.
