@@ -53,6 +53,8 @@ class GameScene extends Phaser.Scene {
 
     // sound
     this.load.audio("laser", "./assets/laser1.wav");
+    this.load.audio("explosion", "./assets/barrelExploding.wav");
+
   }
 
   /**
@@ -66,11 +68,20 @@ class GameScene extends Phaser.Scene {
     this.ship = this.physics.add.sprite(1920 / 2, 1080 - 100, "spaceShip");
 
     //group for missiles
-    this.missleGroup = this.physics.add.group();
+    this.missileGroup = this.physics.add.group();
 
     //group for aliens
     this.alienGroup = this.add.group();
     this.createAlien();
+
+    // Collisions between missiles and aliens
+    this.physics.add.collider(this.missileGroup, this.alienGroup, function (missileCollide, alienCollide){
+      alienCollide.destroy()
+      missileCollide.destroy()
+      this.sound.play("explosion")
+      this.createAlien()
+      this.createAlien()
+    }.bind(this))
   }
   /**
    * Should be overridden by your scenes.
@@ -105,7 +116,7 @@ class GameScene extends Phaser.Scene {
           this.ship.y,
           "missile"
         );
-        this.missleGroup.add(aNewMissile);
+        this.missileGroup.add(aNewMissile);
         this.sound.play("laser");
       }
     }
@@ -114,7 +125,7 @@ class GameScene extends Phaser.Scene {
       this.fireMissile = false;
     }
 
-    this.missleGroup.children.each(function (item) {
+    this.missileGroup.children.each(function (item) {
       item.y = item.y - 15;
       if (item.y < 0) {
         item.destroy();
